@@ -9,8 +9,9 @@ pipeline {
         stage('Preparar Ambiente') {
             steps {
                 dir('TCC-EBAC-CYPRESS') {
-                    echo 'Instalando dependencias...'
+                    echo 'Instalando dependencias e binario do Cypress...'
                     bat 'npm install'
+                    bat 'npx cypress install'
                 }
             }
         }
