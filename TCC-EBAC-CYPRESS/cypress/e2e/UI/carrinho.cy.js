@@ -10,8 +10,6 @@ describe('[US-0001] - Adicionar múltiplos produtos ao carrinho', () => {
 
     produtos.forEach((index) => {
       cy.get(carrinho.produto).eq(index).click().wait(5000)
-      
-      // Aqui está a mágica: ele pega o tamanho e cor específicos do produto atual
       cy.get(carrinho.atributos[index].tamanho).click({force :true})
       cy.get(carrinho.atributos[index].cor).click({force :true}).wait(5000)
       cy.get(carrinho.botaoAdicionar).click().wait(5000)

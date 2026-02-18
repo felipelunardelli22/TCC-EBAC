@@ -2,13 +2,12 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'node' // Certifique-se que este nome coincide com o configurado no Jenkins
+        nodejs 'node'
     }
 
     stages {
         stage('Preparar Ambiente') {
             steps {
-                // Entra na pasta onde o projeto realmente reside
                 dir('TCC-EBAC-CYPRESS') {
                     echo 'Instalando dependências do projeto...'
                     bat 'npm install'
