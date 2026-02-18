@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     tools {
-        // Verifique se no seu Jenkins o nome é 'node' ou 'Node'
         nodejs 'node' 
     }
 
