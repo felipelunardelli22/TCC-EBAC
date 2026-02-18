@@ -2,35 +2,41 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'node' // Nome que você configurou no passo anterior
+        nodejs 'node' // Certifique-se que este nome coincide com o configurado no Jenkins
     }
 
     stages {
-        stage('Instalar Dependências') {
+        stage('Preparar Ambiente') {
             steps {
-                // Instala o Cypress e as bibliotecas do projeto
-                bat 'npm install'
+                // Entra na pasta onde o projeto realmente reside
+                dir('TCC-EBAC-CYPRESS') {
+                    echo 'Instalando dependências do projeto...'
+                    bat 'npm install'
+                }
             }
         }
 
         stage('Testes de API') {
             steps {
-                // Executa especificamente os testes de cupom da US-0003
-                bat 'npx cypress run --spec "cypress/e2e/API/cupons.cy.js"'
+                dir('TCC-EBAC-CYPRESS') {
+                    echo 'Executando testes de API (US-0003)...' [cite: 167]
+                    bat 'npx cypress run --spec "cypress/e2e/API/cupons.cy.js"'
+                }
             }
         }
 
         stage('Testes de UI') {
             steps {
-                // Executa os testes de carrinho da US-0001
-                bat 'npx cypress run --spec "cypress/e2e/UI/carrinho.cy.js"'
+                dir('TCC-EBAC-CYPRESS') {
+                    echo 'Executando testes de UI (US-0001)...' [cite: 164]
+                    bat 'npx cypress run --spec "cypress/e2e/UI/carrinho.cy.js"'
+                }
             }
         }
     }
 
     post {
         always {
-            // Garante que os relatórios sejam salvos mesmo se o teste falhar
             echo 'Finalizando a execução da pipeline de QA...'
         }
     }
