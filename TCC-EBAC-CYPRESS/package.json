@@ -1,0 +1,26 @@
+{
+  "name": "tcc-ebac-cypress",
+  "version": "1.0.0",
+  "description": "Projeto de automação de testes UI e API com Cypress - TCC EBAC",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run",
+    "test:ui": "cypress run --spec cypress/e2e/UI/*.cy.js",
+    "test:api": "cypress run --spec cypress/e2e/API/*.cy.js",
+    "open": "cypress open"
+  },
+  "keywords": [
+    "cypress",
+    "automation",
+    "qa",
+    "tcc",
+    "ebac"
+  ],
+  "author": "Felipe Subi Lunardelli",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "cypress": "^15.10.0"
+  }
+}
+
