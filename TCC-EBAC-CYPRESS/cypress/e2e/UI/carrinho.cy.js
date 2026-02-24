@@ -1,4 +1,4 @@
-import { carrinho } from '../../Locator/carrinho_locator.js'
+import  carrinho  from '../../pages/CarrinhoPage'
 
 describe('[US-0001] - Adicionar múltiplos produtos ao carrinho', () => {
 
