@@ -20,7 +20,7 @@ describe('[US-0001] - Adicionar múltiplos produtos ao carrinho', () => {
       cy.visit('/')
     })
 
-    cy.get(carrinho.botaoCarrinho).click()
+    cy.get(carrinho.botaoCarrinho).click(),
     cy.get(carrinho.abrirCarrinhoCompras).click()
     
   })
